@@ -16,9 +16,9 @@ html {
 }
 
 .card {
-    @apply max-w-6xl sm:flex bg-white rounded-sm 
+    @apply max-w-6xl sm:flex bg-gray-100 rounded-sm 
         mx-4 my-12
-        ring-8 ring-offset-8 ring-primary-600 
+        ring-8 ring-offset-8 ring-primary-600 ring-offset-gray-100
         overflow-hidden;
 }
 
