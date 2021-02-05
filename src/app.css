@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Early GameBoy';
+    src: url('/Early-GameBoy.woff2') format('woff2'),
+        url('/Early-GameBoy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    //font-size: 16px;
+}
+
+.card {
+    @apply max-w-6xl sm:flex bg-white rounded-sm 
+        mx-4 my-12
+        ring-8 ring-offset-8 ring-primary-600 
+        overflow-hidden;
+}
+
+.card__body {
+    @apply flex-auto p-6 md:p-4 lg:p-4 md:ml-2 md:flex-grow;
+}
+
+.card__figure {
+    @apply flex-shrink-0 w-full sm:w-1/2 flex items-center;
+}
+
+.card__img {
+    @apply object-cover w-full bg-gray-400 flex items-center;
+}
+
+.card__title {
+    @apply uppercase tracking-wide text-base text-secondary-600 mb-4 font-display;
+}
+
+.card__copy {
+    @apply mt-2 text-base text-gray-600;
+}
+
+.card__footer {
+    @apply mt-4 flex justify-end items-center space-x-2;
+}
+
+.badge {
+    @apply bg-black rounded-md h-10 my-2 w-28 flex items-center;
+}
