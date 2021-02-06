@@ -1,0 +1,3037 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>gesture-recognition Docs</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <style>
+        /* Sticky footer styles
+        -------------------------------------------------- */
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            line-height: 60px; /* Vertically center the text there */
+            background-color: #f5f5f5;
+        }
+        
+        /* Custom page CSS
+        -------------------------------------------------- */
+        /* Not required for template or sticky footer method. */
+
+        body > .container {
+            padding: 0 15px 60px;
+        }
+
+        .footer > .container {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        code {
+            font-size: 80%;
+        }
+        </style>
+    </head>
+    <body>
+    
+        <div class="container">
+            
+            
+
+    
+    <h1>gesture-recognition Documentation</h1>
+
+    
+    <ul class="nav flex-column">
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_license">gr_license</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_template_add">gr_template_add</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_template_delete_all">gr_template_delete_all</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_template_find_by_name">gr_template_find_by_name</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_template_find_by_index">gr_template_find_by_index</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_template_number">gr_template_number</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_template_get_all">gr_template_get_all</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_gesture_create">gr_gesture_create</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_gesture_set_enabled">gr_gesture_set_enabled</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_gesture_get_enabled">gr_gesture_get_enabled</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_gesture_get_name">gr_gesture_get_name</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_gesture_get_point">gr_gesture_get_point</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_gesture_points_number">gr_gesture_points_number</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_gesture_destroy">gr_gesture_destroy</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_point_create">gr_point_create</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_point_get_x">gr_point_get_x</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_point_get_y">gr_point_get_y</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_point_get_stroke">gr_point_get_stroke</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_point_distance">gr_point_distance</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_recognition_async_process">gr_recognition_async_process</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_recognition_async_is_ready">gr_recognition_async_is_ready</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_recognition_async_total">gr_recognition_async_total</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_recognition_async_number">gr_recognition_async_number</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_recognition_get_name">gr_recognition_get_name</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_recognition_get_accuracy">gr_recognition_get_accuracy</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_recognition_to_map">gr_recognition_to_map</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_recognition_get_number">gr_recognition_get_number</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_path_resample">gr_path_resample</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_path_length">gr_path_length</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_path_distance">gr_path_distance</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_path_centroid">gr_path_centroid</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_path_scale">gr_path_scale</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_path_translate">gr_path_translate</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_draw_points_list">gr_draw_points_list</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_draw_gesture">gr_draw_gesture</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_draw_record">gr_draw_record</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_draw_config">gr_draw_config</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_record_create">gr_record_create</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_record_destroy">gr_record_destroy</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_record_add_point">gr_record_add_point</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_record_draw">gr_record_draw</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_record_points_number">gr_record_points_number</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_record_get_point">gr_record_get_point</a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#gr_record_recognize">gr_record_recognize</a>
+            </li>
+        
+    </ul>
+
+    
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_license">gr_license</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_license();</code></pre>
+
+    
+    
+
+    
+    
+        <p><b>Returns:</b> (string) The license string </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>The Gesture Recognition Engine for GameMaker Studio 2, uses internally the $P Algorithm.</p>
+<p>The $P Point-Cloud Recognizer algorithm used in this Gesture Recognition Engine,
+is distributed under the "New BSD License". It means that if you use this extension you:</p>
+<ul>
+<li>MUST Copy ALL the text inside the single quotes('..') after the line and paste it in
+a text file and distribute with your final game (with the *.exe file)</li>
+<li>If you can't distribute a text file with your game (for example, your game is a mobile game), you MUST display
+the license text on the screen. You can use this code to display the text:
+<code>draw_text(x,y, gr_license());</code></li>
+<li>You CANNOT distribute the source code. (The Gesture Recognition Engine is a
+paid extension and MUST be bought in order to use it)</li>
+</ul>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_template_add">gr_template_add</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_template_add(name, data_type, points_data);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>name</td>
+                            <td>string</td>
+                            <td> The name of the gesture. You can create multiple gestures with the same name.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>data_type</td>
+                            <td>string</td>
+                            <td> A string that specify the type of data provided in points_data argument.
+It can be "path", "array_path", "array_points", "array_raw", "list_points" or "list_raw".</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>points_data</td>
+                            <td>array|list|path</td>
+                            <td> The data that will be determinate the points of the path.</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Gesture) The new created gesture </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Creates and adds a gesture to the Recognition system as a template gesture.
+Check gr_gesture_create to know more about the arguments.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_template_delete_all">gr_template_delete_all</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_template_delete_all([dont_destroy_gestures]);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>dont_destroy_gestures</td>
+                            <td>boolean</td>
+                            <td>If true, the gestures will be only removed from the template list without destroying them</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Removes all gestures from the templates list.
+By default, it also calls gr_gesture_destroy on each gesture to free the memory.
+If for some reason you only want to delete the gestures from the list but without destroying them,
+you can pass true as the optional <code>dont_destroy_gestures</code> argument.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_template_find_by_name">gr_template_find_by_name</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_template_find_by_name(name);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>name</td>
+                            <td>string</td>
+                            <td> The name of the gesture that you are looking.</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Gesture) The gesture </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Finds and returns the first added template gesture with the specified name.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_template_find_by_index">gr_template_find_by_index</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_template_find_by_index(index);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>index</td>
+                            <td>integer</td>
+                            <td> The index starting from 0 of the gesture that you are looking.</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Gesture) The gesture </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Finds and returns the first added template gesture with the specified name.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_template_number">gr_template_number</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_template_number();</code></pre>
+
+    
+    
+
+    
+    
+        <p><b>Returns:</b> (integer) The number of total templates on the system </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>gr_template_number();</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_template_get_all">gr_template_get_all</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_template_get_all([exclude_disabled ]);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>exclude_disabled </td>
+                            <td>bool</td>
+                            <td>If true, only the enabled gestures will be returned</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Array) An array with all the gestures added </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns an array with all the template gestures added to the system</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_gesture_create">gr_gesture_create</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_gesture_create(name, gesture_data_type, points_data);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>name</td>
+                            <td>string</td>
+                            <td> The name of the gesture. You can create multiple gestures with the same name.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>gesture_data_type</td>
+                            <td>string</td>
+                            <td> A string that specify the type of data provided in points_data argument.
+It can be "path", "array_path", "array_points", "array_raw", "list_points" or "list_raw".</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>points_data</td>
+                            <td>array|list|path</td>
+                            <td> The data that will be determinate the points of the path.</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Gesture) The new created gesture </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Creates a gesture with the specified name ussing the points_data specified.
+Note: if you want to add the gesture to the recognition system you must use gr_add instead.
+You can use one of the following strings in the data_type argument to create you gesture:</p>
+<ul>
+<li>"path":
+Points_data must be a game maker path.</li>
+<li>"array_path":
+Points_data must be an array with multiple paths inside. You can add a different path for
+each stroke. So if you pass an array with 4 elements, 4 different strokes will be added to that gesture.</li>
+<li>"array_points":
+Points_data must be an array of points. You can create a point with gr_point_create(x, y, stroke)</li>
+<li>"array_raw":
+Points_data must be an array with the point data. It must have the following format:
+[x1, y1, stroke1, x2, y2, stroke2, … , xN, yN, strokeN]
+where x and y are the coordinates of the point and stroke is the index of the stroke starting from zero.</li>
+<li>"list_points":
+The same as "array_points", but with a ds_list of points.</li>
+<li>"list_raw":
+The same as "array_raw", but with a ds_lists.</li>
+</ul>
+<p>Warning, if you pass a ds_list as the points_data argument, the gesture will be created and the list will be destroyed.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_gesture_set_enabled">gr_gesture_set_enabled</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_gesture_set_enabled(gesture, enabled);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>gesture</td>
+                            <td>Gesture</td>
+                            <td> The gesture</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>enabled</td>
+                            <td>bool</td>
+                            <td>True if enabled</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Sets the enabled propery of a specified gesture.
+If a gesture is disabled, then is ignored by the system when performing the gesture recognition process.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_gesture_get_enabled">gr_gesture_get_enabled</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_gesture_get_enabled(gesture);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>gesture</td>
+                            <td>Gesture</td>
+                            <td> The gesture</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (bool) True if enabled </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Gets the enabled propery of a specified gesture.
+If a gesture is disabled, then is ignored by the system when performing the gesture recognition process.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_gesture_get_name">gr_gesture_get_name</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_gesture_get_name(gesture);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>gesture</td>
+                            <td>Gesture</td>
+                            <td> The gesture</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (string) The gesture name </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Gets the name of a gesture</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_gesture_get_point">gr_gesture_get_point</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_gesture_get_point(gesture, index);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>gesture</td>
+                            <td>Gesture</td>
+                            <td> The gesture</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>index</td>
+                            <td>integer</td>
+                            <td>The point index</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Point) The specified point </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Gets the name of a gesture</p>
+<blockquote>
+  <p>Info: Gestures are preprocesed and stored diferently than you spect. So it's probably
+  that you encounter that the number of points that you get inside a gesture is different
+  than the number of points you provided when created the gesture</p>
+</blockquote>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_gesture_points_number">gr_gesture_points_number</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_gesture_points_number(gesture);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>gesture</td>
+                            <td>Gesture</td>
+                            <td> The gesture</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (integer) The number of points inside the gesture </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Gets the number of points inside a gesture.</p>
+<blockquote>
+  <p>Info: Gestures are preprocesed and stored diferently than you spect. So it's probably
+  that you encounter that the number of points that you get inside a gesture is different
+  than the number of points you provided when created the gesture</p>
+</blockquote>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_gesture_destroy">gr_gesture_destroy</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_gesture_destroy(gesture);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>gesture</td>
+                            <td>Gesture</td>
+                            <td>The gesture to destroy</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (undefined) The value undefined. See example. </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Destroys the specified gesture and free up memory.
+Use it as: <code>my_gesture = gr_gesture_destroy(my_gesture);</code></p>
+        </div>
+    
+
+    
+    
+        <p><b>Example: </b></p>
+        <pre class="lang-js"><code>my_gesture = gr_gesture_destroy(my_gesture);</code></pre>
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_point_create">gr_point_create</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_point_create(x, y, stroke);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>x</td>
+                            <td>real</td>
+                            <td>The x coordinate of the point.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>y</td>
+                            <td>real</td>
+                            <td>The y coordinate of the point.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>stroke</td>
+                            <td>integer</td>
+                            <td>The stroke index for the specified point startig from zero.</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Point) The point instance </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Creates a point and returns it.
+If you are creating a gesture with multiple strokes, you
+can pass the stroke index. If not, simply pass 0 (zero) for the stroke parameter.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_point_get_x">gr_point_get_x</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_point_get_x(point);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>point</td>
+                            <td>Point</td>
+                            <td>The point</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (real) The X coordinate of the specified point </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the X coordinate of the specified point</p>
+        </div>
+    
+
+    
+    
+        <p><b>Example: </b></p>
+        <pre class="lang-js"><code>// This code will manually draw each point of the recorded gesture
+var size = gr_record_points_number(record);
+for (var i = 0; i &lt; size; i++) {
+var point = gr_record_get_point(record, i);
+var xx = gr_point_get_x(point);
+var yy = gr_point_get_y(point);
+draw_circle(xx, yy, 3, false);
+}</code></pre>
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_point_get_y">gr_point_get_y</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_point_get_y(point);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>point</td>
+                            <td>Point</td>
+                            <td>The point</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (real) The Y coordinate of the specified point </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the Y coordinate of the specified point</p>
+        </div>
+    
+
+    
+    
+        <p><b>Example: </b></p>
+        <pre class="lang-js"><code>// This code will manually draw each point of the recorded gesture
+var size = gr_record_points_number(record);
+for (var i = 0; i &lt; size; i++) {
+var point = gr_record_get_point(record, i);
+var xx = gr_point_get_x(point);
+var yy = gr_point_get_y(point);
+draw_circle(xx, yy, 3, false);
+}</code></pre>
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_point_get_stroke">gr_point_get_stroke</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_point_get_stroke(point);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>point</td>
+                            <td>Point</td>
+                            <td>The point</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (integer) The stroke index of the specified point </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the Stroke index of the specified point</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_point_distance">gr_point_distance</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_point_distance(point1, point2);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>point1</td>
+                            <td>Point</td>
+                            <td>The first point</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>point2</td>
+                            <td>Point</td>
+                            <td>The second point</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (real) The distance between two points </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the distance between two points</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_recognition_async_process">gr_recognition_async_process</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_recognition_async_process(result, [time_to_spend ]);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>result</td>
+                            <td>Result</td>
+                            <td>The recognition result object to process</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>time_to_spend </td>
+                            <td>real</td>
+                            <td>The minimum number of milliseconds to spend in the async recognition process</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (boolean) True if the recognition has ended. If you pass undefined or an invalid "result" </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Process the recognition object asynchronous.
+If the recognition is in progress, the funtion returns false. When the recognition is ready, the function returns true.
+Then, you can use the normal <code>gr_recognition_get</code> functions to get the results of the recognition.</p>
+<p>The second argument, specifies how many milliseconds should be spent computing the result. If you don't pass this argument, it is
+automatically calculated based on the room_speed.</p>
+        </div>
+    
+
+    
+    
+        <p><b>Example: </b></p>
+        <pre class="lang-js"><code>/// Global mouse up event
+/// Pass true to activate the async mode
+recognition = gr_record_recognize(record, true);
+
+/// Step event
+if (gr_recogtition_async_is_ready(recognition)) {
+var ready = gr_recognition_async_process(recognition);
+if (ready) {
+var name = gr_recognition_get_name(recognition, 0);
+recognition = undefined; // reset the result
+show_message(&quot;You have drawn a &quot; + name );
+}
+}
+
+/// Draw event
+var ready = gr_recognition_async_is_ready(recognition);
+var total = gr_recognition_async_total(recognition);
+var number = gr_recognition_async_total(number);
+var progress = floor(number / total * 100);
+draw_text(x, y, &quot;Recognition is &quot; + (ready ? &quot;ready&quot; : &quot;in progress&quot;));
+draw_text(x, y, &quot;Progress: &quot; + string(progress) + &quot;%&quot;);</code></pre>
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_recognition_async_is_ready">gr_recognition_async_is_ready</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_recognition_async_is_ready(result);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>result</td>
+                            <td>Result</td>
+                            <td>The recognition result object</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (boolean) True if the results are ready. False if the job is in progress. If the result object is not async, then it always return true </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns true if the recognition is already computed, and is ready.
+You can use in in the step event to check the recognition state. Check the example below.</p>
+<blockquote>
+  <p>INFO: if you pass a value that is not a Recognition, the function returns false.</p>
+</blockquote>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_recognition_async_total">gr_recognition_async_total</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_recognition_async_total(result);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>result</td>
+                            <td>Result</td>
+                            <td>The recognition result object</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (integer) The number of total templates to be processed by the async recognition system </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>gr_recognition_async_total(result);</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_recognition_async_number">gr_recognition_async_number</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_recognition_async_number(result);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>result</td>
+                            <td>Result</td>
+                            <td>The recognition result object</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (integer) The number of templates processed by the async recognition system </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>If the recognition is not async, then the total number of templates processed will be returned</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_recognition_get_name">gr_recognition_get_name</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_recognition_get_name(result, [index]);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>result</td>
+                            <td>Result</td>
+                            <td>The recognition result object</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>index</td>
+                            <td>integer</td>
+                            <td>The index of the recognition starting from zero</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (string) The gesture template name of the result with the specified index </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the name of the recognized pattern gesture for that recognition result with the specified index.
+For example, to get the name of the most similar pattern acording to the recognition results you can
+use <code>var name = gr_recognition_get_name(result, 0);</code>. To get the second most similar pattern, use 1, and so on.
+The index must be between ´0´ and ´gr_recognition_get_number(recognition) - 1´, and they are ordered
+by the accuracy.</p>
+<p>If you don't specify the index, then the index 0 (the most accurate result) is assumed.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_recognition_get_accuracy">gr_recognition_get_accuracy</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_recognition_get_accuracy(result, [index]);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>result</td>
+                            <td>Result</td>
+                            <td>The recognition result object</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>index</td>
+                            <td>integer</td>
+                            <td>The index of the recognition starting from zero</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (real) The accuracy of the result with the specified index </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the accuracy (as a real from 0.00 to 1.00) of the recognized pattern gesture for that recognition result with the specified index.
+For example, to get the accuracy of the most similar pattern acording to the recognition results you can
+use <code>var accuracy = gr_recognition_get_accuracy(result, 0);</code>. To get the second most similar pattern, use 1, and so on.
+The index must be between ´0´ and ´gr_recognition_get_number(recognition) - 1´, and they are ordered
+by the accuracy.</p>
+<p>If you don't specify the index, then the index 0 (the most accurate result) is assumed.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_recognition_to_map">gr_recognition_to_map</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_recognition_to_map(result);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>result</td>
+                            <td>Result</td>
+                            <td>The recognition result object</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (ds_map) A ds_map </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Creates and returns a new ds_map where each key is the name
+of the template gesture and the value is the accuracy score of
+that gesture template.</p>
+        </div>
+    
+
+    
+    
+        <p><b>Example: </b></p>
+        <pre class="lang-js"><code>var map = gr_recognition_to_map(result);
+var s = map[? &quot;triangle&quot;];
+show_debug_message(&quot;The accuracy score for the triangle gesture is &quot; + string(s));</code></pre>
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_recognition_get_number">gr_recognition_get_number</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_recognition_get_number(result);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>result</td>
+                            <td>Result</td>
+                            <td>The recognition result object</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (integer) The number of total recognition results </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the number of total recognition results. Normally, this is equal to the total number of template gestures
+on the system at the time of the recognition ocurred.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_path_resample">gr_path_resample</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_path_resample(points_list, n);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>points_list</td>
+                            <td>ds_list</td>
+                            <td>A ds_list with points</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>n</td>
+                            <td>integer</td>
+                            <td>The number of points</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (ds_list) A new resampled ds_list </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Note: This function is used internally by the system, but is public in case you want to use it for something</p>
+<p>Resample a figure of ds_list of an arbitrary number of points and returns a new ds_list with the new number of points.
+The coordinates of each point are interpolated in the resampling process.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_path_length">gr_path_length</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_path_length(points_list);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>points_list</td>
+                            <td>ds_list</td>
+                            <td>A ds_list with points</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (real) length traversed by a point path </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the length of a path</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_path_distance">gr_path_distance</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_path_distance(points_list1, points_list2);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>points_list1</td>
+                            <td>ds_list</td>
+                            <td>A ds_list with points</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>points_list2</td>
+                            <td>ds_list</td>
+                            <td>A ds_list with points</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (real) average distance between corresponding points in two paths </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Returns the average distance between correspoinding points in two paths.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_path_centroid">gr_path_centroid</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_path_centroid(points_list);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>points_list</td>
+                            <td>ds_list</td>
+                            <td>A ds_list with points</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Point) The centroid of the path </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Calculates the centroid of a path of points</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_path_scale">gr_path_scale</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_path_scale(points_list);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>points_list</td>
+                            <td>ds_list</td>
+                            <td>A ds_list with points</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (ds_list) The same point_list </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Normalizes the size of a path of points</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_path_translate">gr_path_translate</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_path_translate(points_list, translate_to);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>points_list</td>
+                            <td>ds_list</td>
+                            <td>A ds_list with points</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>translate_to</td>
+                            <td>Point</td>
+                            <td>The location to translate the centroid to</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (ds_list) The same point_list </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Translates points' centroid to the specified location in space</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_draw_points_list">gr_draw_points_list</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_draw_points_list(points_list, x, y, scale_x, scale_y);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>points_list</td>
+                            <td>ds_list</td>
+                            <td>A ds_list with Point objects. You can create new points with gr_point_create.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>x</td>
+                            <td>real</td>
+                            <td>The x position</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>y</td>
+                            <td>real</td>
+                            <td>The y position</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>scale_x</td>
+                            <td>real</td>
+                            <td>The horizontal scale. 1 = no scale.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>scale_y</td>
+                            <td>real</td>
+                            <td>The vertical scale. 1 = no scale.</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (nothing) Nothing  </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Draw the list of points on the screen.
+This is an advanced function, normally, you want to use <code>gr_draw_gesture</code> to
+draw a gesture, or <code>gr_draw_record</code> to draw a record.
+To configure the colour and width of the line, you MUST use first <code>gr_draw_config</code>.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_draw_gesture">gr_draw_gesture</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_draw_gesture(gesture_or_name, x, y, width, height);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>gesture_or_name</td>
+                            <td>Gesture|string</td>
+                            <td>The gesture instance of the name of the gesture</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>x</td>
+                            <td>real</td>
+                            <td>The x position of the top left corner of the gesture</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>y</td>
+                            <td>real</td>
+                            <td>The y position of the top left corner of the gesture</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>width</td>
+                            <td>real</td>
+                            <td>The width of the gesture</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>height</td>
+                            <td>real</td>
+                            <td>The height of the gesture</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Draws a path of the given gesture on the screen.
+To configure the colour and width of the line, you MUST use first  <code>gr_draw_config</code>.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_draw_record">gr_draw_record</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_draw_record(record);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>record</td>
+                            <td>Record</td>
+                            <td>The record to draw</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Draws a path of the given gesture record on the screen
+To configure the colour and width of the line, you MUST use first  <code>gr_draw_config</code>.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_draw_config">gr_draw_config</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_draw_config(width, color, round_corners);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>width</td>
+                            <td>real</td>
+                            <td>The width of the stroke</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>color</td>
+                            <td>real</td>
+                            <td>THe color of the stroke</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>round_corners</td>
+                            <td>boolean</td>
+                            <td>If true, the drawing methods will use circles to create a round corners effect</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Configure the width, color and corners mode of the another <code>gr_draw_</code> methods.
+You MUST call this before calling any other method since there is no default value for the width, color and corners.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_record_create">gr_record_create</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_record_create();</code></pre>
+
+    
+    
+
+    
+    
+        <p><b>Returns:</b> (Record) The new record instance </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Creates a new record instance.
+A record, represents a User recorded gesture. Is composed by a set of points.
+The points are usually captured using a mouse, touchscreen, or another input device
+and then are shown on the screen.
+One record, can have multiple strokes. At least one stroke with two points are needed
+to be able to recognize any gesture.</p>
+        </div>
+    
+
+    
+    
+        <p><b>Example: </b></p>
+        <pre class="lang-js"><code>// create
+record = undefined;
+
+// global mouse presed event
+gr_record_destroy(record); // Destroy the previous gesture record
+record = gr_record_create(); // And creates a new gesture record
+
+// global mouse down event
+if (record != undefined) {
+gr_record_add_point(record, mouse_x, mouse_y);
+}
+
+// global mouse released event
+if (record != undefined) {
+result = gr_record_recognize(record);
+// Then, do stuff with the result of the recognition
+}</code></pre>
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_record_destroy">gr_record_destroy</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_record_destroy(record);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>record</td>
+                            <td>Record</td>
+                            <td>The record to destroy</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (undefined) Returns undefined (see example to understand why) </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>gr_record_destroy(record);</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_record_add_point">gr_record_add_point</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_record_add_point(record, x, y, [stroke_number]);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>record</td>
+                            <td>Record</td>
+                            <td>The record to add the point</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>x</td>
+                            <td>real</td>
+                            <td>The point x coordinate (usually, you want to use mouse_x)</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>y</td>
+                            <td>real</td>
+                            <td>The point y coordinate (usually, you want to use mouse_y)</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>stroke_number</td>
+                            <td>integer</td>
+                            <td>The stroke number, by default is stroke 0</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>gr_record_add_point(record, x, y, [stroke_number = 0]);</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_record_draw">gr_record_draw</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_record_draw(	record, line_width, line_col, line_alpha, bullets_rad, bullets_col, bullets_alpha);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>	record</td>
+                            <td>Record</td>
+                            <td>The record you want to draw</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>line_width</td>
+                            <td>real</td>
+                            <td>The line width</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>line_col</td>
+                            <td>color</td>
+                            <td>The line color</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>line_alpha</td>
+                            <td>real</td>
+                            <td>The line alpha</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>bullets_rad</td>
+                            <td>real</td>
+                            <td>The radius of each bullet (vertex point)</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>bullets_col</td>
+                            <td>color</td>
+                            <td>The color  of each bullet (vertex point)</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>bullets_alpha</td>
+                            <td>real</td>
+                            <td>The alpha  of each bullet (vertex point)</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (nothing) Nothing  </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Draws a gesture record on the screen. You can choose your own line width, color and alpha.
+Also, you can choose a radius, color and alpha to draw a circle or bullet in each vertex of the
+recorded gesture.
+This is a very simple code to draw the gesture, if you need a more advanced drawing, you can
+use the functions <code>gr_record_get_point</code> to iterate over the points of the recording and draw it yourself.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_record_points_number">gr_record_points_number</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_record_points_number(record);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>record</td>
+                            <td>Record</td>
+                            <td>The record</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (integer) The number of points on the record (for all strokes) </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Get the number of points inside the gesture record (for all strokes)</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_record_get_point">gr_record_get_point</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_record_get_point(record, i);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>record</td>
+                            <td>Record</td>
+                            <td>The record</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>i</td>
+                            <td>integer</td>
+                            <td>The point index</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Point) The point number i inside the recording </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Get the specified point in the specified gesture record.
+You can use the <code>gr_point</code> functions to get info about the point.</p>
+        </div>
+    
+
+    
+    
+        <p><b>Example: </b></p>
+        <pre class="lang-js"><code>// This code will manually draw each point of the recorded gesture
+var size = gr_record_points_number(record);
+for (var i = 0; i &lt; size; i++) {
+var point = gr_record_get_point(record, i);
+var xx = gr_point_get_x(point);
+var yy = gr_point_get_y(point);
+draw_circle(xx, yy, 3, false);
+}</code></pre>
+    
+    
+
+
+    
+
+        
+        <hr />
+        
+        
+
+    
+    <h3 id="gr_record_recognize">gr_record_recognize</h3>
+
+    <p><b>Syntax: </b></p>
+    <pre class="lang-js"><code>gr_record_recognize(record, [async]);</code></pre>
+
+    
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped js-options-table js-options-table">
+                <thead>
+                    <tr>
+                        <th>Argument name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                        <tr>
+                            <td>record</td>
+                            <td>Record</td>
+                            <td>The record object to recognize</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>async</td>
+                            <td>boolean</td>
+                            <td>If true, the recognition will be made asynchronous</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    
+
+    
+    
+        <p><b>Returns:</b> (Recognition) The recognition result object </p>
+    
+
+    
+    
+        <div class ="description">
+            <p><b>Description: </b></p>
+            <p>Recognize the current record and return a Recognition result object.
+You must use the ´gr_recognition_*´ functions to get the available information about the result.
+The recognition process is made synchornously. It means, that if you have A LOT of templates to be recognized,
+this function can be slow and freeze the game. If notice that your game slows, then you need to use the async mode.</p>
+<p>The async mode let you split the recognition process over multiple game frames (steps). To use the async mode,
+pass true as the second argument. To learn more about the async mode, check gr_recognition_async_process();</p>
+<p>NOTE: The algorithm ussed was the $P algorithm.
+I (Javier "Ciberman" Mora) am not the creator of the $P algorithm.
+The gesture recognition engine for GMS2 is a rewrite for GMS of the $P algorithm with a lot of useful aditions.
+The algorithm itself is released under the "New BSD License".
+Check the script gr_license for more info.</p>
+<p>WARNING: the passed record will be affected. So if you want to preserve the original point list, you must duplicate it first.</p>
+        </div>
+    
+
+    
+    
+    
+
+
+    
+
+
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">Documentation generated with <a href="https://jhm-ciberman.github.io/docs_gm/" target="_blank">docs_gm</a></span>
+            </div>
+        </footer>
+    </body>
+</html>

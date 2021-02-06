@@ -1,0 +1,16 @@
+.jumbotron h1 {
+	font-size: 45px;
+	font-weight: 200;
+}
+.jumbotron, .dark-bg {
+    background: #111;
+}
+.jumbotron p {
+	font-size: 20px;
+}
+
+.jumbotron-image {
+	background-image: url('../img/examples_bk.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+}
