@@ -16,10 +16,11 @@ html {
 }
 
 .card {
-    @apply max-w-6xl sm:flex bg-gray-100 rounded-sm 
-        mx-4 my-12
-        ring-8 ring-offset-8 ring-primary-600 ring-offset-gray-100
-        overflow-hidden;
+    @apply rounded-sm mx-4 ring-8 ring-offset-8 ring-primary-600 overflow-hidden;
+}
+
+.card--white {
+    @apply bg-gray-100 ring-offset-gray-100;
 }
 
 .card__body {
@@ -39,7 +40,7 @@ html {
 }
 
 .card__copy {
-    @apply mt-2 text-base text-gray-600;
+    @apply mt-2 text-base text-gray-600 text-justify;
 }
 
 .card__footer {
