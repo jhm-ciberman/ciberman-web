@@ -31,5 +31,7 @@
     <div class="container mx-auto px-4 py-6">
         {{ $slot }}
     </div>
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "533110866fc54acba75d4e4ab889f3cd"}'></script>
 </body>
 </html>
