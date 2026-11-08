@@ -63,4 +63,15 @@
             <x-newgrounds-link href="https://www.newgrounds.com/portal/view/670240" />
         </x-slot:footer>
     </x-card>
+
+    <h2 class="mt-16 font-display text-lg text-stone-200">Fan projects</h2>
+
+    <x-card image="/img/bugged-out-rally-restored.jpg" title="Bugged Out Rally Restored">
+        <p>A browser port of Bugged Out Rally, a racing game from 2004 made by Inoculous Games. I played it as a kid, and it can no longer be bought. So I rebuilt it to run in any browser, with the original tracks, bugs and music.</p>
+        <p class="mt-2">This is an unofficial fan project. The original game belongs to its authors.</p>
+
+        <x-slot:footer>
+            <x-browser-link href="https://buggedoutrally.ciberman.net" />
+        </x-slot:footer>
+    </x-card>
 </x-layout>
