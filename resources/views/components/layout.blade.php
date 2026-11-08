@@ -32,6 +32,9 @@
         {{ $slot }}
     </div>
 
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "533110866fc54acba75d4e4ab889f3cd"}'></script>
+    @env(['production'])
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "533110866fc54acba75d4e4ab889f3cd"}'></script>
+        <script async src="https://analytics.ahrefs.com/analytics.js" data-key="eksYTTOToJVgm5Ok5NTFpg"></script>
+    @endenv
 </body>
 </html>
